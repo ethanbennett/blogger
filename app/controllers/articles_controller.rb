@@ -18,6 +18,12 @@ class ArticlesController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    Article.destroy(@article)
+    redirect_to action: "index"
+  end
+
   private
 
   def article_params
